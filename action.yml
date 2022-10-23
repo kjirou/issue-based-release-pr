@@ -13,12 +13,5 @@ inputs:
   # target-branch-name:
   #   default: 'main'
 runs:
-  using: "composite"
-  steps:
-    # TODO: キャッシュは内部で勝手にやっていいの？
-    - uses: actions/setup-node@v3
-      with:
-        node-version-file: ".nvmrc"
-    # TODO: GitHub Action との連携テストをローカルでやるのってどうするの？
-    # TODO: 引数のまるっとした渡し方ある？
-    - run: node ./bin/cli.js
+  using: "node16"
+  main: "./bin/cli.js"
