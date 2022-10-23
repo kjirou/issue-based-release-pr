@@ -1,0 +1,24 @@
+name: "Issue-based Release PR"
+description: "Create a release Pull-Request that lists completed issues"
+inputs:
+  base-branch-name:
+    default: "develop"
+    description: ""
+    required: true  # TODO: default があるのに required ？
+  # conditions-for-uncompleted-issues:
+  # release-branch-name-pattern:
+  #   default: 'release/v{version}'
+  # release-pr-name-pattern:
+  # start-date:
+  # target-branch-name:
+  #   default: 'main'
+runs:
+  using: "composite"
+  steps:
+    # TODO: キャッシュは内部で勝手にやっていいの？
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: ".nvmrc"
+    # TODO: GitHub Action との連携テストをローカルでやるのってどうするの？
+    # TODO: 引数のまるっとした渡し方ある？
+    - run: node ./bin/cli.js
