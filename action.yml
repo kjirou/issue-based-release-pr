@@ -14,4 +14,4 @@ inputs:
   #   default: 'main'
 runs:
   using: "node16"
-  main: "./bin/cli.js"
+  main: "./cli.js"
