@@ -3,5 +3,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "SEE LICENSE IN https://github.com/kjirou/issue-based-release-pr/blob/017f586652981e4b07a19b55a7180b348738aaa3/LICENSE",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0"
+  }
 }
