@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  e2e-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: issue-based-release-pr
+        name: Run issue-based-release-pr
+        uses: ./
+        with:
+          base-branch-name: 'e2e_test_base_branch_name'
