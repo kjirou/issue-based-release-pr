@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  test_run:
+  e2e-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,4 +9,4 @@ jobs:
         name: Run issue-based-release-pr
         uses: ./
         with:
-          base-branch-name: 'Hello branch name!'
+          base-branch-name: 'e2e_test_base_branch_name'
