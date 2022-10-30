@@ -4,7 +4,7 @@ inputs:
   base-branch-name:
     default: "develop"
     description: ""
-    required: true  # TODO: default があるのに required ？
+    required: true # TODO: default があるのに required ？
   github-token:
     # TODO: 必要な権限をちゃんと書く。多分 Issue = RO, PR = RO, (最初から付いてて外せない) Metadata = RO のみ。
     description: ""

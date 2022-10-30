@@ -21,15 +21,11 @@ __webpack_require__.r(__webpack_exports__);
  * @return void
  */
 const main = async (params) => {
-  const {
-    baseBranchName,
-    githubToken,
-    rawRepo,
-  } = params;
+  const { baseBranchName, githubToken, rawRepo } = params;
   let owner = "";
   let repo = "";
   if (rawRepo !== "") {
-    [owner, repo] = rawRepo.split('/');
+    [owner, repo] = rawRepo.split("/");
   } else {
     // NOTE: GITHUB_REPOSITORY 環境変数がない状況で `github.context.repo` を呼び出すとエラーになる。
     //       https://github.com/actions/toolkit/blob/2b97eb3192ed27ad81a555e87f3f9de61c11a213/packages/github/src/context.ts#L64-L79
@@ -38,7 +34,7 @@ const main = async (params) => {
       repo = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo;
     } catch (error) {
       if (/a GITHUB_REPOSITORY environment/.test(error.message)) {
-        [owner, repo] = rawRepo.split('/');
+        [owner, repo] = rawRepo.split("/");
       } else {
         throw error;
       }
