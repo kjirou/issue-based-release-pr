@@ -10,3 +10,4 @@ jobs:
         uses: ./
         with:
           base-branch-name: 'e2e_test_base_branch_name'
+          github-token: ${{ secrets.GITHUB_TOKEN }}

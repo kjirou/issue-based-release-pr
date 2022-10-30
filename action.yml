@@ -5,6 +5,10 @@ inputs:
     default: "develop"
     description: ""
     required: true  # TODO: default があるのに required ？
+  github-token:
+    # TODO: 必要な権限をちゃんと書く。多分 Issue = RO, PR = RO, (最初から付いてて外せない) Metadata = RO のみ。
+    description: ""
+    required: true
   # conditions-for-uncompleted-issues:
   # release-branch-name-pattern:
   #   default: 'release/v{version}'
