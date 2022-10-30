@@ -9,5 +9,5 @@ jobs:
         name: Run issue-based-release-pr
         uses: ./
         with:
-          base-branch-name: 'e2e_test_base_branch_name'
+          base-branch-name: "e2e_test_base_branch_name"
           github-token: ${{ secrets.GITHUB_TOKEN }}
