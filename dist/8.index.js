@@ -45,17 +45,14 @@ const main = async (params) => {
     }
   }
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit(githubToken);
-  const { data: pullRequest } = await octokit.rest.pulls.get({
+  const result = await octokit.rest.pulls.list({
     owner,
     repo,
-    pull_number: 1,
-    mediaType: {
-      format: 'diff'
-    }
+    state: "closed",
   });
   console.log("main.js here!");
   console.log("baseBranchName", baseBranchName);
-  console.log(pullRequest);
+  console.log(result);
 };
 
 
