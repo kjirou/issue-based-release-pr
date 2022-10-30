@@ -9,6 +9,11 @@ inputs:
     # TODO: 必要な権限をちゃんと書く。多分 Issue = RO, PR = RO, (最初から付いてて外せない) Metadata = RO のみ。
     description: ""
     required: true
+  repo:
+    default: ""
+    description: |
+      GitHub Action 実行環境なら、GITHUB_REPOSITORY 環境変数を参照するので指定不要。
+      主にローカル開発用で引数でも受け取れるようにしている。
   # conditions-for-uncompleted-issues:
   # release-branch-name-pattern:
   #   default: 'release/v{version}'

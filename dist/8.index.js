@@ -17,17 +17,37 @@ __webpack_require__.r(__webpack_exports__);
  * @param {object} params
  * @param {string} [params.baseBranchName]
  * @param {string} [params.githubToken]
+ * @param {string} [params.rawRepo]
  * @return void
  */
 const main = async (params) => {
   const {
     baseBranchName,
     githubToken,
+    rawRepo,
   } = params;
+  let owner = "";
+  let repo = "";
+  if (rawRepo !== "") {
+    [owner, repo] = rawRepo.split('/');
+  } else {
+    // NOTE: GITHUB_REPOSITORY 環境変数がない状況で `github.context.repo` を呼び出すとエラーになる。
+    //       https://github.com/actions/toolkit/blob/2b97eb3192ed27ad81a555e87f3f9de61c11a213/packages/github/src/context.ts#L64-L79
+    try {
+      owner = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner;
+      repo = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo;
+    } catch (error) {
+      if (/a GITHUB_REPOSITORY environment/.test(error.message)) {
+        [owner, repo] = rawRepo.split('/');
+      } else {
+        throw error;
+      }
+    }
+  }
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit(githubToken);
   const { data: pullRequest } = await octokit.rest.pulls.get({
-    owner: 'kjirou',
-    repo: 'issue-based-release-pr',
+    owner,
+    repo,
     pull_number: 1,
     mediaType: {
       format: 'diff'

@@ -3207,10 +3207,11 @@ const parseArgs = __nccwpck_require__(5871);
 const commandArgs = parseArgs(process.argv.slice(2));
 const baseBranchName = core.getInput('base-branch-name') || commandArgs['base-branch-name'] || "";
 const githubToken = core.getInput('github-token') || commandArgs['github-token'] || "";
+const rawRepo = core.getInput('repo') || commandArgs.repo || "";
 
 Promise.all(/* import() */[__nccwpck_require__.e(438), __nccwpck_require__.e(8)]).then(__nccwpck_require__.bind(__nccwpck_require__, 9008)).then(async ({main}) => {
   try {
-    await main({baseBranchName, githubToken});
+    await main({baseBranchName, githubToken, rawRepo});
   } catch (error) {
     core.setFailed(error.message);
   }
