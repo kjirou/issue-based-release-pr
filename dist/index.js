@@ -69,6 +69,7 @@ const main = async (params) => {
 };
 
 module.exports = {
+  deriveOwnerAndRepo,
   main,
 };
 
