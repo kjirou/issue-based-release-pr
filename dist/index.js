@@ -39,7 +39,10 @@ const deriveOwnerAndRepo = (stringLikeGithubRepository, actionsGitHub) => {
       };
     } catch (error) {
       if (/a GITHUB_REPOSITORY environment/.test(error.message)) {
-        return parseStringLikeGithubRepository(stringLikeGithubRepository);
+        return {
+          owner: "",
+          repo: "",
+        };
       } else {
         throw error;
       }
